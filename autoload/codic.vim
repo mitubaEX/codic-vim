@@ -216,6 +216,8 @@ function! s:Show(items, word)
   endfor
   " Output to result buffer.
   silent! wincmd P
+  " Delete before result
+  silent! execute '1,'.line('$').'delete'
   call append(line('$'), lines)
   silent! execute '1delete'
   silent! wincmd p
